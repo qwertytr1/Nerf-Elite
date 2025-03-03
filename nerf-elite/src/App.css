@@ -1,0 +1,14 @@
+.conteiner {
+  text-align: center;
+  background: url('../assets/Background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+
+}
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('../assets/fonts/EurostileBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

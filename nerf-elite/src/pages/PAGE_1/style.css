@@ -1,0 +1,99 @@
+.logo {
+    width: 40vw;
+    height: 40vh;
+    background: url('../../../assets/logo.png') no-repeat;
+    background-size: contain;
+}
+header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+padding-left: 30px;
+padding-top:25px
+}
+.textChoose{
+    font-family: 'MyCustomFont', sans-serif;
+    font-size: 35px;
+    color: white;
+    padding-left: 50px;
+padding-top:45px;
+text-transform: uppercase;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    margin: 0;
+}
+
+.weapon-container {
+    position: relative;
+    width: 40vw;
+    height: 40vh;
+    margin-top: -125px;
+}
+
+.weapon-container div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.firstWeapon {
+    background-image: url('../../../assets/weapon/first.png');
+    z-index: 1;
+    transform: translateX(50vw) rotate(-2deg);
+}
+
+.secondWeapon {
+    background-image: url('../../../assets/weapon/NERF_Elite20_Commander.png');
+    z-index: 3;
+    transform: translateX(17vw) rotate(1deg);
+}
+
+.thirdWeapon {
+    background-image: url('../../../assets/weapon/NERF_Elite20_Shockwave.png');
+    z-index: 2;
+    transform: translateX(30vw) rotate(-1deg);
+}
+
+.fourthWeapon {
+    background-image: url('../../../assets/weapon/NERF_Elite20_Volt.png');
+    z-index: 4;
+    transform: translateX(0vw) rotate(2deg);
+}
+.buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 3vw;
+}
+
+.weapon-button {
+    width: 45vw;
+    height: 10vh;
+    font-size: 25px;
+    font-family: 'MyCustomFont', sans-serif;
+    font-weight: bold;
+    background-color: #09d1e1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.weapon-button:hover {
+    background-color: #f37921;
+    transform: scale(1.05);
+}
