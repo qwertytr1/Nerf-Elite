@@ -1,0 +1,93 @@
+.containerForRange {
+    text-align: center;
+    background: url('../../../assets/backgrounds/background_second.jpg') no-repeat center center fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Контент сверху */
+  }
+
+  /* Обертка для логотипа и текста */
+  .headerViewRange {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Логотип слева, текст по центру */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Логотип в верхнем левом углу */
+  .logoViewRange {
+    width: 20vw;
+    height: 20vh;
+    background: url('../../../assets/logo.png') no-repeat center center;
+    background-size: contain;
+  }
+
+  /* Текст по центру */
+  .textSwipe {
+    font-family: 'MyCustomFont', sans-serif;
+    font-size: 35px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    flex-grow: 1; /* Чтобы текст занимал доступное пространство */
+  }
+  /* Elite 2.0 Commander has a 6-dart rotating drum, 3 tactical rails and 2 stock attachmentsire. Fire 1 dart or launch all 6 darts, with slam-fire action. Comes with 6 Elite darts. */
+  /* Elite 2.0 Commander */
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .textSwipe {
+      font-size: 24px;
+    }
+
+    .logoViewRange {
+      width: 120px;
+      height: 60px;
+    }
+
+    .headerViewRange {
+      padding: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .textSwipe {
+      font-size: 18px;
+    }
+
+    .logoViewRange {
+      width: 100px;
+      height: 50px;
+    }
+
+    .headerViewRange {
+      flex-direction: column; /* Логотип и текст в столбик */
+      align-items: center;
+      text-align: center;
+    }
+  }
+  @media (max-width: 1024px) {
+    .containerForRange {
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .containerForRange {
+      background-size: contain;
+      background-attachment: scroll;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .containerForRange {
+      padding: 10px;
+      background-size: contain;
+    }
+  }

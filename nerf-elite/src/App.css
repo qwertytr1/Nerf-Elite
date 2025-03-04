@@ -1,6 +1,6 @@
-.conteiner {
+.container {
   text-align: center;
-  background: url('../assets/Background.jpg') no-repeat center center fixed;
+  background: url('../assets/backgrounds/Background.jpg') no-repeat center center fixed;
   background-size: cover;
   width: 100vw;
   height: 100vh;
