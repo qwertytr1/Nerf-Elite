@@ -24,7 +24,7 @@ function Page1() {
         <div className="fourthWeapon"></div>
       </div>
       <div className="buttons-container">
-        <button className="weapon-button">PLAY MINIGAME</button>
+        <button className="weapon-button" onClick={()=> navigate("/miniGame")}>PLAY MINIGAME</button>
         <button className="weapon-button" onClick={() => setIsModalOpen(true)}>
           WATCH VIDEO
         </button>

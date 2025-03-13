@@ -1,93 +1,195 @@
-.containerForRange {
-    text-align: center;
-    background: url('../../../assets/backgrounds/background_second.jpg') no-repeat center center fixed;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
+/* Убираем горизонтальный скролл */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+/* Контейнер слайдера */
+
+
+/* Шапка */
+.headerViewRange {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+/* Логотип */
+.logoViewRange {
+  width: 150px;
+  height: 80px;
+  background: url('../../../assets/logo.png') no-repeat center center;
+  background-size: contain;
+}
+
+/* Текст сверху */
+.textSwipe {
+  font-family: 'Arial', sans-serif;
+  font-size: 28px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  flex-grow: 1;
+}
+
+
+
+/* Кнопки стрелок */
+.arrowButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 12px;
+  transition: background 0.3s;
+}
+
+.leftArrow {
+  left: 20px;
+}
+
+.rightArrow {
+  right: 20px;
+}
+
+.arrowButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.sliderContainer {
+  width: 110vw; /* Увеличиваем ширину слайдера */
+  height: 110vh; /* Увеличиваем высоту слайдера */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url('../../../assets/backgrounds/background_second.jpg') no-repeat center center fixed;
+  background-size: cover;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Контейнер содержимого */
+.slideContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75vw; /* Увеличиваем ширину содержимого */
+  gap: 80px; /* Увеличиваем отступ между картинкой и текстом */
+  margin-top: 40px; /* Добавляем отступ сверху для сдвига содержимого */
+}
+
+/* Контейнер изображения оружия */
+.weaponImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px; /* Добавляем отступ справа от изображения */
+}
+
+/* Изображение оружия */
+.weaponImage {
+  max-width: 45%;
+  max-height: 75vh; /* Увеличиваем размер изображения */
+  height: auto;
+  transform: rotate(-20deg);
+}
+
+/* Контейнер текста */
+.textContainer {
+  flex: 1;
+  color: white;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Заголовок оружия */
+.titleWeapon {
+  font-size: 40px; /* Увеличиваем размер заголовка */
+  font-weight: bold;
+  margin-bottom: 15px; /* Увеличиваем отступ между заголовком и описанием */
+}
+
+/* Описание оружия */
+.overviewWeapon {
+  font-size: 22px; /* Увеличиваем размер текста */
+  line-height: 1.5;
+}
+
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1024px) {
+  .slideContent {
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Контент сверху */
-  }
-
-  /* Обертка для логотипа и текста */
-  .headerViewRange {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Логотип слева, текст по центру */
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  /* Логотип в верхнем левом углу */
-  .logoViewRange {
-    width: 20vw;
-    height: 20vh;
-    background: url('../../../assets/logo.png') no-repeat center center;
-    background-size: contain;
-  }
-
-  /* Текст по центру */
-  .textSwipe {
-    font-family: 'MyCustomFont', sans-serif;
-    font-size: 35px;
-    color: white;
-    text-transform: uppercase;
     text-align: center;
-    flex-grow: 1; /* Чтобы текст занимал доступное пространство */
-  }
-  /* Elite 2.0 Commander has a 6-dart rotating drum, 3 tactical rails and 2 stock attachmentsire. Fire 1 dart or launch all 6 darts, with slam-fire action. Comes with 6 Elite darts. */
-  /* Elite 2.0 Commander */
-  /* Адаптивность */
-  @media (max-width: 768px) {
-    .textSwipe {
-      font-size: 24px;
-    }
-
-    .logoViewRange {
-      width: 120px;
-      height: 60px;
-    }
-
-    .headerViewRange {
-      padding: 15px;
-    }
   }
 
-  @media (max-width: 480px) {
-    .textSwipe {
-      font-size: 18px;
-    }
-
-    .logoViewRange {
-      width: 100px;
-      height: 50px;
-    }
-
-    .headerViewRange {
-      flex-direction: column; /* Логотип и текст в столбик */
-      align-items: center;
-      text-align: center;
-    }
-  }
-  @media (max-width: 1024px) {
-    .containerForRange {
-      background-position: center;
-      background-size: cover;
-    }
+  .weaponImageContainer {
+    order: 1;
   }
 
-  @media (max-width: 768px) {
-    .containerForRange {
-      background-size: contain;
-      background-attachment: scroll;
-    }
+  .textContainer {
+    order: 2;
+    text-align: center;
   }
 
-  @media (max-width: 480px) {
-    .containerForRange {
-      padding: 10px;
-      background-size: contain;
-    }
+  .titleWeapon {
+    font-size: 2rem;
   }
+
+  .overviewWeapon {
+    font-size: 1.1rem;
+  }
+
+  .weaponImage {
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .titleWeapon {
+    font-size: 1.6rem;
+  }
+
+  .overviewWeapon {
+    font-size: 1rem;
+  }
+
+  .weaponImage {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .titleWeapon {
+    font-size: 1.3rem;
+  }
+
+  .overviewWeapon {
+    font-size: 0.9rem;
+  }
+
+  .weaponImage {
+    max-width: 95%;
+  }
+
+  .arrowButton {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+}
