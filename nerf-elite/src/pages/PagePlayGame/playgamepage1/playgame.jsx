@@ -4,30 +4,14 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const weapons = [
-  {
-    id: 1,
-    image: "assets/weapon/first.png",
-    title: "ELITE 2.0 ECHO",
-  },
-  {
-    id: 2,
-    image: "assets/weapon/NERF_Elite20_Volt.png",
-    title: "ELITE 2.0 VOLT",
-  },
-  {
-    id: 3,
-    image: "assets/weapon/NERF_Elite20_Shockwave.png",
-    title: "Elite 2.0 SHOCKWAVE",
-  },
-  {
-    id: 4,
-    image: "assets/weapon/NERF_Elite20_Commander.png",
-    title: "Elite 2.0 Commander",
-  },
+  { id: 1, image: "assets/weapon/first.png", title: "ELITE 2.0 ECHO" },
+  { id: 2, image: "assets/weapon/NERF_Elite20_Volt.png", title: "ELITE 2.0 VOLT" },
+  { id: 3, image: "assets/weapon/NERF_Elite20_Shockwave.png", title: "Elite 2.0 SHOCKWAVE" },
+  { id: 4, image: "assets/weapon/NERF_Elite20_Commander.png", title: "Elite 2.0 Commander" },
 ];
 
 const GAME_PLAY_PAGE1 = () => {
-  const navigate = useNavigate(); // Хук для перехода на другую страницу
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -36,6 +20,14 @@ const GAME_PLAY_PAGE1 = () => {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === weapons.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  const handlePlay = () => {
+    const selectedWeapon = weapons[currentIndex].title;
+    const selectedWeaponImage = weapons[currentIndex].image;
+    localStorage.setItem("selectedImage", selectedWeaponImage);
+    localStorage.setItem("selectedWeapon", selectedWeapon);
+    navigate("/play");
   };
 
   return (
@@ -70,7 +62,7 @@ const GAME_PLAY_PAGE1 = () => {
 
       <div className="buttonContainer">
         <button className="navButton" onClick={() => navigate("/")}>Back</button>
-        <button className=" playButton" onClick={() => navigate("/play")}>Play</button>
+        <button className="playButton" onClick={handlePlay}>Play</button>
       </div>
     </div>
   );

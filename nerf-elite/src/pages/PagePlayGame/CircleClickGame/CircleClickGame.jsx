@@ -1,10 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./CircleClickGame.css";
+import { useNavigate } from "react-router-dom";
 
 const CircleClickGame = () => {
     const [score, setScore] = useState(0);
     const [timeLeft, setTimeLeft] = useState(20);
     const [circles, setCircles] = useState([]);
+    const navigate = useNavigate();
+
+    const scoreRef = useRef(score);
+    const timerRef = useRef(null);
+
+    const selectedWeapon = localStorage.getItem("selectedWeapon") || "Unknown";
 
     const circleTypes = [
         { points: 10, size: 100 },
@@ -16,26 +23,33 @@ const CircleClickGame = () => {
     useEffect(() => {
         if (timeLeft <= 0) return;
 
-        const gameInterval = setInterval(() => {
-            spawnCircle();
-        }, 700);
-
-        const timerInterval = setInterval(() => {
+        timerRef.current = setInterval(() => {
             setTimeLeft(prev => {
                 if (prev <= 1) {
-                    clearInterval(gameInterval);
-                    clearInterval(timerInterval);
-                    alert(`Game Over! Final Score: ${score}`);
+                    clearInterval(timerRef.current);
+                    localStorage.setItem("finalScore", scoreRef.current);
+
+                    setTimeout(() => {
+                        navigate("/game-over", { state: { score: scoreRef.current, selectedWeapon } });
+                    }, 500);
+
                     return 0;
                 }
                 return prev - 1;
             });
         }, 1000);
 
-        return () => {
-            clearInterval(gameInterval);
-            clearInterval(timerInterval);
-        };
+        return () => clearInterval(timerRef.current);
+    }, []);
+
+    useEffect(() => {
+        if (timeLeft <= 0) return;
+
+        const gameInterval = setInterval(() => {
+            spawnCircle();
+        }, 700);
+
+        return () => clearInterval(gameInterval);
     }, [timeLeft]);
 
     const spawnCircle = () => {
@@ -57,21 +71,27 @@ const CircleClickGame = () => {
     };
 
     const handleCircleClick = (id, points) => {
-        setScore(prev => prev + points);
+        setScore(prev => {
+            const newScore = prev + points;
+            scoreRef.current = newScore;
+            return newScore;
+        });
         setCircles(prev => prev.filter(circle => circle.id !== id));
     };
 
     return (
         <div className="game-container">
-                  <div className="headerMiniGame">
-        <div className="logoViewRange"></div>
-        <div className="textPlay">tap the targets to shoot as many <br/>
-        as you can within the time limit!</div>
-      </div>
-      <div className="display-container">
-            <div className="score-display">Score: {score}</div>
-                <div className="time-display">Time: {timeLeft} sec.</div>
+            <div className="headerMiniGame">
+                <div className="logoViewRange"></div>
+                <div className="textPlay">
+                    Tap the targets to shoot as many <br />
+                    as you can within the time limit!
                 </div>
+            </div>
+            <div className="display-container">
+                <div className="score-display">Score: {score}</div>
+                <div className="time-display">Time: {timeLeft} sec.</div>
+            </div>
             {circles.map(circle => (
                 <div
                     key={circle.id}

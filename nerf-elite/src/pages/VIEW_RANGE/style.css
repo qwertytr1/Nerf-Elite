@@ -1,25 +1,39 @@
-/* Убираем горизонтальный скролл */
+/* Убираем все отступы */
 body, html {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   height: 100%;
+  width: 100%;
+  background: url('../../../assets/backgrounds/background_second.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Контейнер слайдера */
-
-
-/* Шапка */
-.headerViewRange {
-  width: 100%;
+/* Основной контейнер */
+.sliderContainer {
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  justify-content: center;
+  position: relative;
   box-sizing: border-box;
+}
+
+/* Логотип и заголовок прижаты к верху */
+.headerViewRange {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  margin-top: -50px;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Не позволяет header сжиматься */
 }
 
 /* Логотип */
@@ -30,166 +44,183 @@ body, html {
   background-size: contain;
 }
 
-/* Текст сверху */
+/* Заголовок */
 .textSwipe {
-  font-family: 'Arial', sans-serif;
-  font-size: 28px;
+  font-family: 'MyCustomFont', sans-serif;
+  font-size: 24px;
   color: white;
   text-transform: uppercase;
   text-align: center;
   flex-grow: 1;
 }
 
-
-
-/* Кнопки стрелок */
-.arrowButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 12px;
-  transition: background 0.3s;
-}
-
-.leftArrow {
-  left: 20px;
-}
-
-.rightArrow {
-  right: 20px;
-}
-
-.arrowButton:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-.sliderContainer {
-  width: 110vw; /* Увеличиваем ширину слайдера */
-  height: 110vh; /* Увеличиваем высоту слайдера */
+/* Основной контент – изображение и текст */
+.sliderWrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: url('../../../assets/backgrounds/background_second.jpg') no-repeat center center fixed;
-  background-size: cover;
-  padding: 20px;
-  box-sizing: border-box;
+  justify-content: flex-start;
+  width: 100vw;
+  height: calc(100vh - 60px); /* Минус высота шапки */
   position: relative;
 }
 
-/* Контейнер содержимого */
-.slideContent {
+.slideContentRange {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 75vw; /* Увеличиваем ширину содержимого */
-  gap: 80px; /* Увеличиваем отступ между картинкой и текстом */
-  margin-top: 40px; /* Добавляем отступ сверху для сдвига содержимого */
-}
-
-/* Контейнер изображения оружия */
-.weaponImageContainer {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 40px; /* Добавляем отступ справа от изображения */
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 10vw;
+  max-width: 1200px; /* Ограничиваем ширину */
+  box-sizing: border-box;
 }
 
 /* Изображение оружия */
 .weaponImage {
-  max-width: 45%;
-  max-height: 75vh; /* Увеличиваем размер изображения */
+  width: 50%;
   height: auto;
-  transform: rotate(-20deg);
+  padding-right: 50px;
+  transform: rotate(-10deg);
+  margin-right: 20px;
 }
 
-/* Контейнер текста */
+/* Блок текста */
 .textContainer {
   flex: 1;
   color: white;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 50%;
 }
 
-/* Заголовок оружия */
+/* Заголовок */
 .titleWeapon {
-  font-size: 40px; /* Увеличиваем размер заголовка */
+  font-size: 70px;
   font-weight: bold;
-  margin-bottom: 15px; /* Увеличиваем отступ между заголовком и описанием */
+  color: aqua;
+  font-family: 'MyCustomFont', sans-serif;
+  margin-bottom: 15px;
 }
 
-/* Описание оружия */
+/* Описание */
 .overviewWeapon {
-  font-size: 22px; /* Увеличиваем размер текста */
+  font-size: 18px;
   line-height: 1.5;
 }
 
+/* Стрелки */
+.arrowButton {
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 15px;
+  transition: background 0.3s;
+  z-index: 10;
+}
 
-/* Медиа-запросы для адаптивности */
+.arrowButton:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Стрелки слева и справа */
+.leftArrow {
+  margin-right: 10px; /* Отступ от левой стрелки */
+}
+
+.rightArrow {
+  margin-left: 10px; /* Отступ от правой стрелки */
+}
+
+/* ======= АДАПТИВНЫЕ СТИЛИ ======= */
+
+/* Планшеты (768px - 1024px) */
 @media (max-width: 1024px) {
-  .slideContent {
+  .sliderWrapper {
     flex-direction: column;
+    align-items: center;
     text-align: center;
+    height: calc(100vh - 60px);
   }
 
-  .weaponImageContainer {
-    order: 1;
+  .slideContentRange {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .weaponImage {
+    width: 70%;
+    max-width: 400px;
+    transform: rotate(-5deg);
+    margin-bottom: 20px;
+    padding-right: 0;
   }
 
   .textContainer {
-    order: 2;
+    max-width: 90%;
     text-align: center;
   }
 
   .titleWeapon {
-    font-size: 2rem;
+    font-size: 50px;
   }
 
   .overviewWeapon {
-    font-size: 1.1rem;
+    font-size: 16px;
   }
 
-  .weaponImage {
-    max-width: 85%;
+  .arrowButton {
+    font-size: 26px;
+    padding: 12px;
   }
 }
 
+/* Мобильные (до 768px) */
 @media (max-width: 768px) {
-  .titleWeapon {
-    font-size: 1.6rem;
+  .sliderWrapper {
+    flex-direction: column;
+    height: 100%;
   }
 
-  .overviewWeapon {
-    font-size: 1rem;
+  .slideContentRange {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
   }
 
   .weaponImage {
+    width: 90%;
+    max-width: 350px;
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .textContainer {
     max-width: 90%;
+    text-align: center;
   }
-}
 
-@media (max-width: 480px) {
   .titleWeapon {
-    font-size: 1.3rem;
+    font-size: 30px;
   }
 
   .overviewWeapon {
-    font-size: 0.9rem;
-  }
-
-  .weaponImage {
-    max-width: 95%;
+    font-size: 14px;
   }
 
   .arrowButton {
     font-size: 20px;
-    padding: 8px 12px;
+    padding: 10px;
+  }
+
+  .logoViewRange {
+    width: 80px;
+    height: 40px;
+  }
+
+  .textSwipe {
+    font-size: 16px;
   }
 }

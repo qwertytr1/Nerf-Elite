@@ -1,12 +1,12 @@
 import './style.css';
 import { useState } from "react";
 import VideoPlayer from "../videoPlayer/video";
-import "../videoPlayer/video.css"; // Добавим стили для затемненного фона
+import "../videoPlayer/video.css";
 import { useNavigate } from "react-router-dom";
 
 function Page1() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate(); // Хук для перехода на другую страницу
+  const navigate = useNavigate();
 
   return (
     <>
@@ -31,7 +31,7 @@ function Page1() {
         <button className="weapon-button" onClick={() => navigate("/viewRange")}>
           VIEW RANGE
         </button>
-        <button className="weapon-button">VISIT NERF</button>
+        <button className="weapon-button"><a href='https://nerf.by/listing'>VISIT NERF</a></button>
       </div>
       {isModalOpen && (
         <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>

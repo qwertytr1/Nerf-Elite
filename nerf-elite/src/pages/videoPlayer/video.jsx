@@ -1,20 +1,44 @@
 import React, { useRef, useEffect } from "react";
-import videojs from "video.js";
 import "video.js/dist/video-js.css";
 
 const VideoPlayer = ({ src, poster }) => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.load();
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.code === "Space") {
+        event.preventDefault();
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [src]);
+
   return (
     <div data-vjs-player>
-<video
-    id="my-video"
-    className="video-js"
-    preload="auto"
+      <video
+        ref={videoRef}
+        className="video-js"
         width="640"
+        height="360"
+        poster={poster}
+        controls
         autoPlay
-    height="264"
-    poster="MY_VIDEO_POSTER.jpg"
-    data-setup="{}"
-  >
+      >
         <source src={src} type="video/mp4" />
       </video>
     </div>

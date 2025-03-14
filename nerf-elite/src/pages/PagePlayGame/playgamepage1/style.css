@@ -5,7 +5,6 @@ body, html {
     height: 100%;
 }
 
-/* Header прижат ровно к верху */
 .headerMiniGame {
     width: 100%;
     position: absolute;
@@ -17,7 +16,7 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Контейнер слайдера */
+
 .sliderContainerPlay {
     width: 100vw;
     height: 100vh;
@@ -29,9 +28,8 @@ body, html {
     background-size: cover;
     padding: 20px;
     box-sizing: border-box;
-    position: relative; /* Чтобы header позиционировался относительно контейнера */
-}
-  /* Логотип */
+    position: relative; }
+
   .logoViewRange {
     width: 30vw;
     height: 30vh;
@@ -39,7 +37,7 @@ body, html {
     background-size: contain;
   }
 
-  /* Текст сверху */
+
   .textSwipe {
     font-family: 'MyCustomFont', sans-serif;
     font-size: 28px;
@@ -51,7 +49,7 @@ body, html {
 
 
 
-  /* Кнопки стрелок */
+
   .arrowButton {
     position: absolute;
     top: 50%;
@@ -84,30 +82,29 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 75vw;
     text-align: center;
-    margin-top: 20px; /* Уменьшаем отступ сверху */
+    flex-grow: 1;
+    margin-top: 20px;
 }
-  /* Контейнер изображения оружия */
+
   .weaponImageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 40px; /* Добавляем отступ справа от изображения */
+    margin-right: 40px;
   }
 
-  /* Изображение оружия */
   .weaponImageMiniGame {
 width:35vw;
     height: auto;
     margin-top:100px
 }
 
-/* Контейнер текста */
+
 .textContainerMiniGame {
     width: 100%;
-    margin-top: 5px; /* Минимальный отступ после изображения */
-}/* Заголовок оружия */
+    margin-top: 5px;
+}
 .titleWeaponMiniGame {
     font-family: 'MyCustomFont', sans-serif;
     font-size: 35px;
@@ -118,7 +115,7 @@ width:35vw;
     margin: 0;
 }
 
-/* Контейнер кнопок */
+
 .buttonContainer {
     display: flex;
     justify-content: space-between;
@@ -126,7 +123,7 @@ width:35vw;
     margin-top: 20px;
 }
 
-/* Кнопки "Back" и "Play" */
+
 .navButton {
     background: #09d1e1;
     font-family: 'MyCustomFont', sans-serif;
@@ -150,7 +147,7 @@ width:35vw;
 }
 
 
-/* Стили для кнопки Play */
+
 .playButton {
     background: #f37921;
     font-family: 'MyCustomFont', sans-serif;
@@ -183,14 +180,12 @@ width:35vw;
     left: 50%;
     transform: translateX(-50%);
 }
-  /* Описание оружия */
   .overviewWeapon {
-    font-size: 22px; /* Увеличиваем размер текста */
+    font-size: 22px;
     line-height: 1.5;
   }
 
 
-  /* Медиа-запросы для адаптивности */
   @media (max-width: 1024px) {
     .slideContent {
       flex-direction: column;
