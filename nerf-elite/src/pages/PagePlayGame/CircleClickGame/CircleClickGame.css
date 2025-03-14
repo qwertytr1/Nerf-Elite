@@ -1,0 +1,50 @@
+
+.textPlay{
+        font-family: 'MyCustomFont', sans-serif;
+        font-size: 30px;
+        color: white;
+        text-transform: uppercase;
+        text-align: left;
+        flex-grow: 1;
+      }
+
+
+/* Контейнер для счета и таймера */
+.display-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.score-display, .time-display {
+    color: white;
+    font-family: 'MyCustomFont', sans-serif;
+
+    text-transform: uppercase;
+    font-size: 40px;
+    margin: 5px 0;
+}
+
+.circle {
+    background:black;
+    border-radius: 50%;
+    position: absolute;
+    border: orange 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    animation: shrink linear forwards;
+}
+
+@keyframes shrink {
+    from { transform: scale(1); }
+    to { transform: scale(0); }
+}

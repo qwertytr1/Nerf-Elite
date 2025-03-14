@@ -1,0 +1,72 @@
+.imageScoreContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-10deg);
+}
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+.visitButton{
+  background: #f37921;
+  font-family: 'MyCustomFont', sans-serif;
+  font-size: 35px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  width: 30vw;
+  padding: 10px 30px;
+  display: inline-block;
+
+  position: absolute;
+  bottom: 10px;
+  left: 85%;
+  transform: translateX(-50%);
+  border: 2px solid #f37921;
+  cursor: pointer;
+  height: 9vh;
+  transition: all 0.3s ease;
+}
+.visitButton a{
+  text-decoration: none;
+  color: black;
+}
+.weaponImageMiniGame {
+  width: 40vw; /* Подстрой размер под нужный */
+  height: auto;
+}
+
+.scoreMiniGame {
+  font-size: 35px;
+  font-family: 'MyCustomFont', sans-serif;
+  font-weight: bold;
+  color: white;
+  margin-top: 10px;
+}
+.videoContainer {
+  width: 50%;
+border: solid 2px aqua;
+  position: absolute;
+  right: 20px;
+  top: 25%;
+}
+
+.video-js {
+  width: 100%;
+  height: auto;
+}
+.scorePoint {
+  font-family: 'MyCustomFont', sans-serif;
+  color: yellow;
+  font-size: 70px;
+  font-weight: bold;
+}

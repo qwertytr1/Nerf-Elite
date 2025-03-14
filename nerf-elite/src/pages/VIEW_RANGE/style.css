@@ -1,0 +1,226 @@
+/* Убираем все отступы */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background: url('../../../assets/backgrounds/background_second.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Основной контейнер */
+.sliderContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Логотип и заголовок прижаты к верху */
+.headerViewRange {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  margin-top: -50px;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Не позволяет header сжиматься */
+}
+
+/* Логотип */
+.logoViewRange {
+  width: 150px;
+  height: 80px;
+  background: url('../../../assets/logo.png') no-repeat center center;
+  background-size: contain;
+}
+
+/* Заголовок */
+.textSwipe {
+  font-family: 'MyCustomFont', sans-serif;
+  font-size: 24px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Основной контент – изображение и текст */
+.sliderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: calc(100vh - 60px); /* Минус высота шапки */
+  position: relative;
+}
+
+.slideContentRange {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 10vw;
+  max-width: 1200px; /* Ограничиваем ширину */
+  box-sizing: border-box;
+}
+
+/* Изображение оружия */
+.weaponImage {
+  width: 50%;
+  height: auto;
+  padding-right: 50px;
+  transform: rotate(-10deg);
+  margin-right: 20px;
+}
+
+/* Блок текста */
+.textContainer {
+  flex: 1;
+  color: white;
+  text-align: left;
+  max-width: 50%;
+}
+
+/* Заголовок */
+.titleWeapon {
+  font-size: 70px;
+  font-weight: bold;
+  color: aqua;
+  font-family: 'MyCustomFont', sans-serif;
+  margin-bottom: 15px;
+}
+
+/* Описание */
+.overviewWeapon {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Стрелки */
+.arrowButton {
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 15px;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.arrowButton:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Стрелки слева и справа */
+.leftArrow {
+  margin-right: 10px; /* Отступ от левой стрелки */
+}
+
+.rightArrow {
+  margin-left: 10px; /* Отступ от правой стрелки */
+}
+
+/* ======= АДАПТИВНЫЕ СТИЛИ ======= */
+
+/* Планшеты (768px - 1024px) */
+@media (max-width: 1024px) {
+  .sliderWrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: calc(100vh - 60px);
+  }
+
+  .slideContentRange {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .weaponImage {
+    width: 70%;
+    max-width: 400px;
+    transform: rotate(-5deg);
+    margin-bottom: 20px;
+    padding-right: 0;
+  }
+
+  .textContainer {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .titleWeapon {
+    font-size: 50px;
+  }
+
+  .overviewWeapon {
+    font-size: 16px;
+  }
+
+  .arrowButton {
+    font-size: 26px;
+    padding: 12px;
+  }
+}
+
+/* Мобильные (до 768px) */
+@media (max-width: 768px) {
+  .sliderWrapper {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .slideContentRange {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .weaponImage {
+    width: 90%;
+    max-width: 350px;
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .textContainer {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .titleWeapon {
+    font-size: 30px;
+  }
+
+  .overviewWeapon {
+    font-size: 14px;
+  }
+
+  .arrowButton {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .logoViewRange {
+    width: 80px;
+    height: 40px;
+  }
+
+  .textSwipe {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,248 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.headerMiniGame {
+    width: 100%;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+
+.sliderContainerPlay {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../../../../assets/backgrounds/backgame.png') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; }
+
+  .logoViewRange {
+    width: 30vw;
+    height: 30vh;
+    background: url('../../../../assets/logo.png') no-repeat center center;
+    background-size: contain;
+  }
+
+
+  .textSwipe {
+    font-family: 'MyCustomFont', sans-serif;
+    font-size: 28px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+
+
+
+  .arrowButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 12px;
+    transition: background 0.3s;
+  }
+
+  .leftArrow {
+    left: 20px;
+  }
+
+  .rightArrow {
+    right: 20px;
+  }
+
+  .arrowButton:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+
+
+.slideContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1;
+    margin-top: 20px;
+}
+
+  .weaponImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+  }
+
+  .weaponImageMiniGame {
+width:35vw;
+    height: auto;
+    margin-top:100px
+}
+
+
+.textContainerMiniGame {
+    width: 100%;
+    margin-top: 5px;
+}
+.titleWeaponMiniGame {
+    font-family: 'MyCustomFont', sans-serif;
+    font-size: 35px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 20px;
+}
+
+
+.navButton {
+    background: #09d1e1;
+    font-family: 'MyCustomFont', sans-serif;
+    font-size: 35px;
+    color: black;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    width: 30vw;
+    padding: 10px 30px;
+    display: inline-block;
+
+    position: absolute;
+    bottom: 10px;
+    left: 15%;
+    transform: translateX(-50%);
+    border: 2px solid #09d1e1;
+    cursor: pointer;
+    height: 9vh;
+    transition: all 0.3s ease;
+}
+
+
+
+.playButton {
+    background: #f37921;
+    font-family: 'MyCustomFont', sans-serif;
+    font-size: 35px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    width: 30vw;
+    padding: 10px 30px;
+    display: inline-block;
+
+    position: absolute;
+    bottom: 10px;
+    left: 85%;
+    transform: translateX(-50%);
+    border: 2px solid #f37921;
+    cursor: pointer;
+    height: 9vh;
+    transition: all 0.3s ease;
+}
+.titleBox {
+    background: black;
+    border: 4px solid #09d1e1;
+    padding: 10px 20px;
+    display: inline-block;
+    width: 30vw;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+  .overviewWeapon {
+    font-size: 22px;
+    line-height: 1.5;
+  }
+
+
+  @media (max-width: 1024px) {
+    .slideContent {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .weaponImageContainer {
+      order: 1;
+    }
+
+    .textContainer {
+      order: 2;
+      text-align: center;
+    }
+
+    .titleWeapon {
+      font-size: 2rem;
+    }
+
+    .overviewWeapon {
+      font-size: 1.1rem;
+    }
+
+    .weaponImage {
+      max-width: 85%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .titleWeapon {
+      font-size: 1.6rem;
+    }
+
+    .overviewWeapon {
+      font-size: 1rem;
+    }
+
+    .weaponImage {
+      max-width: 90%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .titleWeapon {
+      font-size: 1.3rem;
+    }
+
+    .overviewWeapon {
+      font-size: 0.9rem;
+    }
+
+    .weaponImage {
+      max-width: 95%;
+    }
+
+    .arrowButton {
+      font-size: 20px;
+      padding: 8px 12px;
+    }
+  }
